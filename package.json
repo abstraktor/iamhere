@@ -2,6 +2,7 @@
   "name": "4-snackbutton",
   "version": "0.0.0",
   "dependencies": {
+    "geofire": "^2.1.1",
     "node-geocoder": "^2.7.0"
   },
   "devDependencies": {
