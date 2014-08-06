@@ -48,9 +48,17 @@ google.maps.event.addDomListener(window, 'load', init_map);
 //###################################################################################
 function initFire(){
 	clients = new Firebase("https://dazzling-fire-7219.firebaseio.com/clients");
-	client = clients.push("", function(){
-		initGeo();
-	});
+	if(localStorage.getItem("clientId")){
+		client = clients.child(localStorage.getItem("clientId"));
+			console.log("my restored is", client.name());
+			initGeo();
+	}else{
+		client = clients.push("", function(){
+			localStorage.setItem("clientId", client.name());
+			console.log("my just created id is", client.name());
+			initGeo();
+		});
+	}
 }
 
 
@@ -90,7 +98,7 @@ function initGeo(){
 
 	geoQuery.on('key_moved', function(key, locPair, distance){
 		console.log('key_moved', key, locPair);
-	    otherMarkers[key].setPosition(locPair[0], locPair[1]);
+	    otherMarkers[key].setPosition(new google.maps.LatLng(locPair[0], locPair[1]));
 	    otherMarkers[key].setTitle(distance+"km");
 	});
 }
