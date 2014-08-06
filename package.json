@@ -1,7 +1,9 @@
 {
   "name": "4-snackbutton",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "node-geocoder": "^2.7.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.5.0",
