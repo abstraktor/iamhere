@@ -91,3 +91,16 @@ body {
         border-bottom: 0;
     }
 }
+
+
+#map-outer {  
+        height: 440px; 
+        padding: 20px; 
+        margin-bottom: 20px; 
+        background-color:#FFF}
+
+#map-container { height: 400px }
+
+@media all and (max-width: 768px) {
+    #map-outer  { height: 650px }
+}
